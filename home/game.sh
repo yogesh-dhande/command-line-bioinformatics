@@ -1,21 +1,27 @@
 #!/bin/bash
+
 while :
-    do
-        PROMPT='Type a command'
-        EXPECTED_COMMAND='grep docker sandbox.sh'
+do 
+        LINE=$(shuf -n 1 home/data.csv)
 
-        echo ${PROMPT}; echo 
+        PROMPT=$(echo $LINE | cut -d "," -f 1 )
+        EXPECTED_COMMAND=$(echo $LINE | cut -d "," -f 2 )
 
-        read COMMAND
+        while :
+            do
+                echo $PROMPT 
 
-        if diff -q <(${COMMAND}) <(${EXPECTED_COMMAND}) > /dev/null
-        then 
-            echo .......
-            echo $(${COMMAND})
-            echo .......
-            break
-        else 
-            echo Please try again ...
-        fi
-        echo
-    done
+                read COMMAND
+
+                if diff -q <(${COMMAND}) <(${EXPECTED_COMMAND}) > /dev/null
+                then 
+                    echo .......
+                    echo $(${COMMAND})
+                    echo .......
+                    break
+                else 
+                    echo Please try again ...
+                fi
+                echo
+            done
+done
