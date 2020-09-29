@@ -39,9 +39,9 @@ do
                 elif diff -q <(eval $COMMAND) <(eval $EXPECTED_COMMAND) > /dev/null
                     then 
                         cecho "Correct! Here's the output: " $green
-                        cecho "......." $yellow
+                        cecho "-----------------------------------------------------" $yellow
                         cat <(eval $COMMAND)
-                        cecho "......." $yellow
+                        cecho "-----------------------------------------------------" $yellow
                         break
                     else 
                         cecho "Please try again ..." $red

@@ -1,3 +1,4 @@
-Count the number of fastq files in the /fastq folder,find fastq -name *fastq.* | wc -l
+Count the number of fastq files in the fastq folder,find fastq -name *fastq.* | wc -l
+Count the number of sequences in fastq/hcc1395_tumor_rep3_r1.fastq.gz,zgrep ^@ fastq/hcc1395_tumor_rep3_r1.fastq.gz | wc -l
 List all files,ls
 List all files with human-readable file sizes,ls -lh
