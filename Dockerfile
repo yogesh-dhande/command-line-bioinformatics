@@ -4,4 +4,6 @@ COPY home /home
 
 WORKDIR /home
 
-RUN chmod +x game.sh
+COPY /src/* /bin/
+
+RUN cat /root/.bashrc /bin/.bash-preexec.sh /bin/wrapper.sh > /root/.bashrc
