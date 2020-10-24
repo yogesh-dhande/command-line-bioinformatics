@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 
-COPY home /home
+RUN apt-get update && apt-get -y install rsync
+
+COPY home /bin/home
 
 WORKDIR /home
 

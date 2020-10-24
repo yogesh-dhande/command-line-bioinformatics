@@ -35,7 +35,7 @@ preexec() {
 }
 
 precmd() { 
-
+    rsync -r /bin/home/ /home/
     if ! [[ -n ${PROMPT} ]]; then
         
         while IFS=, read PROMPT EXPECTED_COMMAND <&2
