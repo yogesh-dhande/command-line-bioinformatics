@@ -1,6 +1,8 @@
 Count the number of fastq files in the fastq folder,find files/fastq -name *fastq.* | wc -l
-Count the number of sequences in files/fastq/hcc1395_tumor_rep3_r1.fastq.gz,zgrep ^@ files/fastq/hcc1395_tumor_rep3_r1.fastq.gz | wc -l
+Count the number of sequences in files/fastq/hcc1395_tumor_rep1_r1.fastq.gz,zgrep -c ^@ files/fastq/hcc1395_tumor_rep1_r1.fastq.gz | wc -l
 List all files,ls
 List all files in the folder names files with human-readable file sizes,ls -lh files
 Calculate average read length in files/fastq/hcc1395_normal_rep1_r1.fastq.gz,zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}'
 Print all sequences from files/fastq/hcc1395_normal_rep1_r1.fastq.gz,zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk 'NR%4==2 {print $1}'
+Count the number of sequences in files/gencode.v35.transcripts.fa.gz,zgrep -c "^>" files/gencode.v35.transcripts.fa.gz
+Print the sequence name and the length of each sequence separated by a tab in files/gencode.v35.transcripts.fa.gz,zcat files/gencode.v35.transcripts.fa.gz | awk '$0 ~ ">" {if (NR > 1) {print c;} c=0;printf substr($0,2,100) "\t"; } $0 !~ ">" {c+=length($0);} END { print c; }'

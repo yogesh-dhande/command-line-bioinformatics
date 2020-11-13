@@ -21,7 +21,8 @@
 		"bmalehorn.shell-syntax",
 		"grapecity.gc-excelviewer",
 		"donjayamanne.githistory",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"shd101wyy.markdown-preview-enhanced"
 	],
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

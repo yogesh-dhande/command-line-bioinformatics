@@ -1,0 +1,43 @@
+beginner:
+  - 
+    prompt: List all files
+    command: ls
+    hints:
+      - This is easy
+      - Try it
+    clean_up: echo cleaning up
+  - 
+    prompt: Count the number of fastq files in the fastq folder
+    command: find files/fastq -name *fastq.* | wc -l
+    hints:
+    clean_up:
+  - 
+    prompt: Count the number of sequences in files/fastq/hcc1395_tumor_rep1_r1.fastq.gz
+    command: zgrep -c ^@ files/fastq/hcc1395_tumor_rep1_r1.fastq.gz | wc -l
+    hints:
+    clean_up:
+  - 
+    prompt: Calculate average read length in files/fastq/hcc1395_normal_rep1_r1.fastq.gz
+    command: zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}'
+    hints:
+    clean_up:
+  - 
+    prompt: Print all sequences from files/fastq/hcc1395_normal_rep1_r1.fastq.gz
+    command: zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk 'NR%4==2 {print $1}'
+    hints:
+    clean_up:
+  - 
+    prompt: Count the number of sequences in files/gencode.v35.transcripts.fa.gz
+    command: zgrep -c "^>" files/gencode.v35.transcripts.fa.gz
+    hints:
+    clean_up:
+  - 
+    prompt: Print the sequence name and the length of each sequence separated by a tab in files/gencode.v35.transcripts.fa.gz
+    command: zcat files/gencode.v35.transcripts.fa.gz | awk '$0 ~ ">" {if (NR > 1) {print c;} c=0;printf substr($0,2,100) "\t"; } $0 !~ ">" {c+=length($0);} END { print c; }'
+    hints:
+    clean_up:
+  - 
+    prompt:
+    command:
+    hints:
+    clean_up:

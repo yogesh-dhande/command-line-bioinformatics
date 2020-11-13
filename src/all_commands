@@ -1,0 +1,8 @@
+ls
+find files/fastq -name *fastq.* | wc -l
+zgrep -c ^@ files/fastq/hcc1395_tumor_rep1_r1.fastq.gz | wc -l
+zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}'
+zcat files/fastq/hcc1395_normal_rep1_r1.fastq.gz | awk 'NR%4==2 {print $1}'
+zgrep -c "^>" files/gencode.v35.transcripts.fa.gz
+zcat files/gencode.v35.transcripts.fa.gz | awk '$0 ~ ">" {if (NR > 1) {print c;} c=0;printf substr($0,2,100) "\t"; } $0 !~ ">" {c+=length($0);} END { print c; }'
+null

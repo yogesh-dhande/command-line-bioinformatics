@@ -21,19 +21,18 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
+RUN echo "${USERNAME}:${PW}" | chpasswd
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
-    apt-get install -qq -y build-essential nodejs yarn && yarn global add wetty
+    apt-get install -qq -y build-essential nodejs yarn
+    
+RUN yarn global add wetty
 
-RUN echo "${USERNAME}:${PW}" | chpasswd
+RUN apt-get update && apt-get -y install rsync jq python3-pip && pip3 install yq
 
-
-# RUN ls
-# COPY sandbox.sh /usr/local/bin
-# RUN chmod a+x /usr/local/bin/sandbox.sh && usermod -u ${USER_UID} -s /usr/local/bin/sandbox.sh &{USER}
 
 # Setting the ENTRYPOINT to docker-init.sh will configure non-root access to 
 # the Docker socket if "overrideCommand": false is set in devcontainer.json. 
