@@ -1,7 +1,7 @@
 # /bin/bash
 IFS=$'\n'
 
-[ -z ${HOME_DIR_PATH+x} ] && export HOME_DIR_PATH=src/home
+[ -z ${HOME_DIR_PATH+x} ] && export HOME_DIR_PATH=resources/home
 
 cd ${HOME_DIR_PATH}
 
