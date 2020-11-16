@@ -28,8 +28,6 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
     apt-get install -qq -y build-essential nodejs yarn
-    
-RUN yarn global add wetty
 
 RUN apt-get update && apt-get -y install rsync jq python3-pip && pip3 install yq
 
@@ -38,7 +36,6 @@ RUN apt-get update && apt-get -y install rsync jq python3-pip && pip3 install yq
 # the Docker socket if "overrideCommand": false is set in devcontainer.json. 
 # The script will also execute CMD if you need to alter startup behaviors.
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
-CMD ["wetty"]
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

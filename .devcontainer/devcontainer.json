@@ -22,11 +22,12 @@
 		"grapecity.gc-excelviewer",
 		"donjayamanne.githistory",
 		"eamodio.gitlens",
-		"shd101wyy.markdown-preview-enhanced"
+		"shd101wyy.markdown-preview-enhanced",
+		"octref.vetur"
 	],
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	"forwardPorts": [3000, 8080, 8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "cd container && ./setup.sh",
