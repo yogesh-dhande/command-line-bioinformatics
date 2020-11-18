@@ -30,7 +30,7 @@
 	"forwardPorts": [3000, 8080, 8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cd container && ./setup.sh",
+	// "postCreateCommand": "",
 
 	// Uncomment the next two lines to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "overrideCommand": false,

@@ -1,0 +1,14 @@
+version: "3.8"
+services: 
+  command-line-bioinformatics:
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
+      - "3000:3000"
+    volumes: 
+      - /app/server/node_modules
+      - /app/client/node_modules
+      - /Users/yogesh/projects/command-line-bioinformatics:/app
+      - /var/run/docker.sock:/var/run/docker.sock

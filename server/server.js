@@ -44,7 +44,7 @@ require('express-ws')(app);
 app.post('/terminals', function (req, res) {
   let cols = parseInt(req.query.cols, 10);
   let rows = parseInt(req.query.rows, 10);
-  let term = pty.spawn('container/sandbox.sh', [], {
+  let term = pty.spawn('bash', ["sandbox.sh"], {
     name: 'xterm-color',
     cols: cols || 80,
     rows: rows || 24,

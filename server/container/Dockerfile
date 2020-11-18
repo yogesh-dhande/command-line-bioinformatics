@@ -7,10 +7,10 @@ ENV HOME_DIR_PATH=/home
 
 COPY resources/ $SOURCE_FOLDER_PATH/
 
-COPY /bin/home/ ${HOME_DIR_PATH}/
-
-WORKDIR ${HOME_DIR_PATH}
+COPY resources/home/ ${HOME_DIR_PATH}/
 
 RUN /bin/bash $SOURCE_FOLDER_PATH/cache_commands.sh
+
+WORKDIR ${HOME_DIR_PATH}
 
 RUN cat /root/.bashrc /bin/.bash-preexec.sh /bin/wrapper.sh > /root/.bashrc
